@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 @Injectable()
 export class HelperService {
   static toBool(val) {
@@ -11,15 +10,15 @@ export class HelperService {
   }
 
   static shuffle(array) {
-    let currentIndex = array.length, temp, randomIndex;
+    let currentindex = array.length, temp, randomindex;
 
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
+    while (0 !== currentindex) {
+      randomindex = Math.floor(Math.random() * currentindex);
+      currentindex -= 1;
 
-      temp = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temp;
+      temp = array[currentindex];
+      array[currentindex] = array[randomindex];
+      array[randomindex] = temp;
     }
     return array;
   }

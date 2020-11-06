@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { QuizService } from '../services/quiz.service';
-import { HelperService } from '../services/helper.service';
 import { Option, Question, Quiz, QuizConfig } from '../models/index';
 
 @Component({
@@ -18,14 +17,10 @@ export class QuizComponent implements OnInit {
   config: QuizConfig = {
     'allowBack': true,
     'allowReview': true,
-    'autoMove': false,  // if true, it will move to next question automatically when answered.
-    //'duration': 300,  // indicates the time (in secs) in which quiz needs to be completed. 0 means unlimited.
+    'autoMove': false, 
     'pageSize': 1,
-    'requiredAll': false,  // indicates if you must answer all the questions before submitting.
+    'requiredAll': false,
     'richText': false,
-    //'shuffleQuestions': false,
-    //'shuffleOptions': false,
-    //'showClock': false,
     'showPager': true,
     'theme': 'none'
   };
@@ -35,12 +30,7 @@ export class QuizComponent implements OnInit {
     size: 1,
     count: 1
   };
-  /* timer: any = null;
-  startTime: Date;
-  endTime: Date;
-  ellapsedTime = '00:00';
-  duration = ''; */
-
+  correctAnswers = 0;
   constructor(private quizService: QuizService) { }
 
   ngOnInit() {
@@ -57,17 +47,7 @@ export class QuizComponent implements OnInit {
     this.mode = 'quiz';
   }
 
-  tick() {
-    const now = new Date();
-   /*  const diff = (now.getTime() - this.startTime.getTime()) / 1000;
-    if (diff >= this.config.duration) {
-      this.onSubmit();
-    }
-    this.ellapsedTime = this.parseTime(diff); */
-  }
-
-
-  get filteredQuestions() {
+  get getQuestions() {
     return (this.quiz.questions) ?
       this.quiz.questions.slice(this.pager.index, this.pager.index + this.pager.size) : [];
   }
@@ -89,19 +69,19 @@ export class QuizComponent implements OnInit {
     }
   }
 
-  isAnswered(question: Question) {
-    return question.options.find(x => x.selected) ? 'Answered' : 'Not Answered';
+  isMarked(question: Question) {
+    return question.options.find(x => x.selected) ? 'marked' : 'not marked';
   };
 
   isCorrect(question: Question) {
+    if((question.options.every(x => x.selected === x.isAnswer) ? 'correct' : 'wrong')=='correct')
+    this.correctAnswers = this.correctAnswers + 1;
     return question.options.every(x => x.selected === x.isAnswer) ? 'correct' : 'wrong';
   };
 
   onSubmit() {
     let answers = [];
     this.quiz.questions.forEach(x => answers.push({ 'quizId': this.quiz.id, 'questionId': x.id, 'answered': x.answered }));
-
-    // Post your data to the server here. answers contains the questionId and the users' answer.
     console.log(this.quiz.questions);
     this.mode = 'result';
   }

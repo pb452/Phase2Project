@@ -7,7 +7,7 @@
   <hr />
 
   <div *ngIf="mode=='quiz' && quiz">
-    <div *ngFor="let question of filteredQuestions;">
+    <div *ngFor="let question of getQuestions;">
       <div>Question Number {{pager.index + 1}} of {{pager.count}}.</div>
       <hr />
       <div class="font-weight-normal">{{pager.index + 1}}.
@@ -32,7 +32,7 @@
 
   <div class="row text-center" *ngIf="mode=='review'">
     <div class="col-4 cursor-pointer" *ngFor="let question of quiz.questions; let index = index;">
-      <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered(question) }}</div>
+      <div (click)="goTo(index)" class="p-3 mb-2 {{ isMarked(question) == 'marked'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isMarked(question) }}</div>
     </div>
   </div>
   <div class="result" *ngIf="mode=='result'">
@@ -48,6 +48,8 @@
         <div class="alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your Answer is {{isCorrect(question)}}.</div>
       </div>
     </div>
+    <H4 class="text-center"> Your score is {{correctAnswers/2}}/10</H4>
+    <hr />
     <H4 class="text-center">QUIZ IS OVER</H4>
   </div>
   <hr />

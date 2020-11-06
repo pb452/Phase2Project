@@ -35,7 +35,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -71,7 +71,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -107,7 +107,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -143,7 +143,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -179,7 +179,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -215,7 +215,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -251,7 +251,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -287,7 +287,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -323,7 +323,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         },
@@ -359,7 +359,7 @@
             ],
             "questionType": {
                 "id": 1,
-                "name": "Multiple Choice",
+                "name": "MCQ",
                 "isActive": true
             }
         }
